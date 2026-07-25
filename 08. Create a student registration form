@@ -1,0 +1,43 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class StudentRegistrationForm {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Student Registration Form");
+
+        JLabel nameLabel = new JLabel("Name:");
+        JLabel rollLabel = new JLabel("Roll Number:");
+        JLabel courseLabel = new JLabel("Course:");
+
+        JTextField name = new JTextField();
+        JTextField roll = new JTextField();
+
+        String courses[] = {"CSE", "ECE", "EEE", "MECH"};
+        JComboBox<String> course = new JComboBox<>(courses);
+
+        JButton submit = new JButton("Submit");
+
+        f.setLayout(new GridLayout(4, 2));
+
+        f.add(nameLabel);
+        f.add(name);
+        f.add(rollLabel);
+        f.add(roll);
+        f.add(courseLabel);
+        f.add(course);
+        f.add(new JLabel());
+        f.add(submit);
+
+        submit.addActionListener(e -> {
+            JOptionPane.showMessageDialog(f,
+                "Registration Successful!\nName: " + name.getText() +
+                "\nRoll Number: " + roll.getText() +
+                "\nCourse: " + course.getSelectedItem());
+        });
+
+        f.setSize(400, 250);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
