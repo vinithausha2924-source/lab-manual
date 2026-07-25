@@ -1,0 +1,60 @@
+class ChessPiece {
+    String color;
+
+    ChessPiece(String color) {
+        this.color = color;
+    }
+
+    void move() {
+        System.out.println("Chess piece is moving");
+    }
+}
+
+class Pawn extends ChessPiece {
+
+    Pawn(String color) {
+        super(color);
+    }
+
+    @Override
+    void move() {
+        System.out.println(color + " Pawn moves one step forward");
+    }
+}
+
+class Rook extends ChessPiece {
+
+    Rook(String color) {
+        super(color);
+    }
+
+    @Override
+    void move() {
+        System.out.println(color + " Rook moves horizontally or vertically");
+    }
+}
+
+class Knight extends ChessPiece {
+
+    Knight(String color) {
+        super(color);
+    }
+
+    @Override
+    void move() {
+        System.out.println(color + " Knight moves in L shape");
+    }
+}
+
+public class ChessGame {
+    public static void main(String[] args) {
+
+        ChessPiece p1 = new Pawn("White");
+        ChessPiece p2 = new Rook("Black");
+        ChessPiece p3 = new Knight("White");
+
+        p1.move();
+        p2.move();
+        p3.move();
+    }
+}
