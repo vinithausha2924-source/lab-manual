@@ -1,0 +1,43 @@
+import java.util.*;
+
+class Employee {
+    String name;
+    String department;
+    double salary;
+
+    Employee(String name, String department, double salary) {
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+}
+
+public class EmployeeAnalytics {
+    public static void main(String[] args) {
+
+        List<Employee> employees = Arrays.asList(
+            new Employee("Arun", "IT", 50000),
+            new Employee("Bala", "HR", 40000),
+            new Employee("Chitra", "IT", 60000),
+            new Employee("Divya", "Finance", 55000)
+        );
+
+        System.out.println("Employees with salary above 50000:");
+
+        employees.stream()
+            .filter(e -> e.salary > 50000)
+            .forEach(e -> System.out.println(e.name));
+
+        double totalSalary = employees.stream()
+            .mapToDouble(e -> e.salary)
+            .sum();
+
+        System.out.println("Total Salary: " + totalSalary);
+
+        System.out.println("IT Department Employees:");
+
+        employees.stream()
+            .filter(e -> e.department.equals("IT"))
+            .forEach(e -> System.out.println(e.name));
+    }
+}
