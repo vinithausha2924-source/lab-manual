@@ -1,0 +1,53 @@
+import java.util.*;
+
+class DataContainer<T> {
+
+    private List<T> data = new ArrayList<>();
+
+    void addData(T value) {
+        data.add(value);
+    }
+
+    void displayData() {
+        for (T value : data) {
+            System.out.println(value);
+        }
+    }
+
+    public static <T> void display(T value) {
+        System.out.println("Generic Method: " + value);
+    }
+
+    public static <T extends Number> double add(T a, T b) {
+        return a.doubleValue() + b.doubleValue();
+    }
+}
+
+public class GenericDataContainer {
+    public static void main(String[] args) {
+
+        DataContainer<String> names = new DataContainer<>();
+
+        names.addData("Arun");
+        names.addData("Bala");
+        names.addData("Chitra");
+
+        System.out.println("Names:");
+        names.displayData();
+
+        DataContainer<Integer> numbers = new DataContainer<>();
+
+        numbers.addData(10);
+        numbers.addData(20);
+        numbers.addData(30);
+
+        System.out.println("Numbers:");
+        numbers.displayData();
+
+        DataContainer.display("Hello Java");
+
+        double result = DataContainer.add(10, 20);
+
+        System.out.println("Sum: " + result);
+    }
+}
