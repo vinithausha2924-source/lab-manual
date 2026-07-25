@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class StudentMarksFile {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Student Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Mark: ");
+        int mark = sc.nextInt();
+
+        FileWriter fw = new FileWriter("student.txt");
+        fw.write("Student Name: " + name + "\n");
+        fw.write("Mark: " + mark);
+        fw.close();
+
+        System.out.println("\nData stored successfully.");
+
+        BufferedReader br = new BufferedReader(
+                new FileReader("student.txt"));
+
+        String line;
+        System.out.println("\nStudent Details:");
+
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        br.close();
+    }
+}
